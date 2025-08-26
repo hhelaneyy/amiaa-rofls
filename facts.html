@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ami Kaboom — Funfacts</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="header">
+    <img src="assets/images/прикол.jpg" alt="VTuber Logo" class="logo"/>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="facts.html" class="nav-link active">Funfacts</a>
+      <a href="achievements.html" class="nav-link">Achievements</a>
+    </nav>
+  </header>
+
+  <main class="center-content page-enter">
+    <h2>Random Amiaa Funfacts</h2>
+    <p id="factText" class="fact-bubble">Click the button to reveal a funfact!</p>
+    <button id="factBtn" class="btn primary">Touch the Angel of Death!!</button>
+    <small id="factProgress" class="achievement-counter mt-10">0 / 0 collected</small>
+  </main>
+
+  <div class="achievement-toast" id="achievementToast" aria-live="polite">
+    <div class="achievement-icon">🏆</div>
+    <div class="achievement-text">
+      <h3 id="toastTitle">New Achievement Unlocked!</h3>
+      <p id="toastSubtitle">Prize: ...</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

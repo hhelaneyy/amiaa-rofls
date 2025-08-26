@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ami Kaboom — Achievements</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="header">
+    <img src="assets/images/кепочка.png" alt="VTuber Logo" class="logo"/>
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="facts.html" class="nav-link">Funfacts</a>
+      <a href="achievements.html" class="nav-link active">Achievements</a>
+    </nav>
+  </header>
+
+  <main class="center-content page-enter">
+    <h2>Achievements</h2>
+
+    <div id="achievements-container" class="ach-grid">
+      <!-- Achievement: Collect all facts -->
+      <div class="achievement-card locked" id="ach_trulyFan" tabindex="0" aria-describedby="ach_trulyFan_desc">
+        <div class="emoji" id="ach_trulyFan_emoji">🔒</div>
+        <div class="info">
+          <h3 class="ach-title">Truly Fan</h3>
+          <p id="ach_trulyFan_desc" class="ach-desc">Collect all funfacts from Ami.</p>
+          <small id="factProgress" class="achievement-counter">0 / 0 collected</small>
+        </div>
+      </div>
+
+      <!-- Marathon Achievement -->
+      <div class="achievement-card locked" id="ach_marathonAmi" tabindex="0" aria-describedby="ach_marathon_desc">
+        <div class="emoji" id="ach_marathonAmi_emoji">🔒</div>
+        <div class="info">
+          <h3 class="ach-title">Marathon with Ami</h3>
+          <p id="ach_marathon_desc" class="ach-desc">Some say if you watch Ami long enough, secrets will reveal themselves...</p>
+          <small id="marathonProgress" class="achievement-counter">300 / 300 seconds</small>
+        </div>
+      </div>
+    </div>
+
+    <button id="resetAchievements" class="btn danger mt-20">Reset all Achievements</button>
+  </main>
+
+  <!-- Achievement Toast -->
+  <div class="achievement-toast" id="achievementToast" aria-live="polite">
+    <div class="achievement-icon">🏆</div>
+    <div class="achievement-text">
+      <h3 id="toastTitle">New Achievement Unlocked!</h3>
+      <p id="toastSubtitle">Prize: ...</p>
+    </div>
+  </div>
+
+  <!-- Locked Info Modal -->
+  <div id="lockedInfoModal" class="modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-emoji">🔒</div>
+      <h3 class="modal-title" id="lockedInfoTitle">Truly Fan</h3>
+      <p class="modal-text" id="lockedInfoText">Collect all funfacts from Ami to unlock this achievement.</p>
+      <button id="lockedInfoClose" class="btn">Close</button>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div id="confirmModal" class="modal" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-emoji">❓</div>
+      <h3 class="modal-title">Are you sure?</h3>
+      <p class="modal-text">This will reset all your achievements and collected funfacts.</p>
+      <div class="modal-actions">
+        <button id="confirmYes" class="btn danger">Yes, reset</button>
+        <button id="confirmNo" class="btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

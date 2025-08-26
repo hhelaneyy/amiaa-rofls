@@ -1,256 +1,327 @@
-body {
+/* ========== Base ========== */
+:root{
+  --pink1:#ff9a9e;
+  --pink2:#fad0c4;
+  --accent:#ff6f61;
+  --accent-strong:#ff3b2e;
+  --text:#333;
+  --white: #fff;
+  --glass: rgba(255,255,255,0.9);
+  --shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+*{ box-sizing: border-box; }
+
+html, body{ height: 100%; }
+
+body{
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #9d50bb, #6e48aa);
-  color: white;
-  animation: fadeIn 1s ease-in-out;
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  background: linear-gradient(135deg, var(--pink1), var(--pink2));
+  color: var(--text);
 }
 
-/* ---------- Анимации ---------- */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ---------- Header ---------- */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 15px 40px;
-  background: rgba(0, 0, 0, 0.7);
+/* ========== Header / Nav ========== */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 50px;
+  background: var(--glass);
+  box-shadow: var(--shadow);
   position: sticky;
   top: 0;
-  z-index: 100;
-  backdrop-filter: blur(6px);
+  z-index: 1000;
 }
 
-header h1 {
-  font-size: 24px;
-  margin: 0;
-  animation: slideUp 0.8s ease-in-out;
-}
-
-nav a {
-  position: relative;
-  margin-left: 20px;
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-/* underline-анимация */
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 0%;
-  height: 2px;
-  background: #ffb6f2;
-  transition: width 0.3s;
-}
-
-nav a:hover {
-  color: #ffb6f2;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* ---------- Главная ---------- */
-.center-text {
-  height: calc(100vh - 80px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 48px;
-  font-family: 'Pacifico', cursive;
-  line-height: 1.4;
-  padding: 20px;
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-/* ---------- Галерея ---------- */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  padding: 40px;
-  animation: fadeIn 1.2s ease-in-out;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.gallery img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-}
-
-/* ---------- Клипы ---------- */
-.clips {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 40px;
-  animation: fadeIn 1.2s ease-in-out;
-}
-
-.clips iframe {
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-  max-width: 560px;
-  width: 100%;
-  height: 315px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.clips iframe:hover {
-  transform: scale(1.03);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.7);
-}
-
-/* ---------- About (О VTuber) ---------- */
-.about {
-  max-width: 800px;
-  margin: 60px auto;
-  background: rgba(0,0,0,0.5);
-  padding: 30px;
-  border-radius: 20px;
-  line-height: 1.6;
-  font-size: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  animation: slideUp 1s ease-in-out;
-}
-
-/* Логотип */
-.logo {
-  height: 50px;
-  transform: scaleX(1.5);
-  object-fit: contain;
+.logo{
+  height: 60px;
   cursor: pointer;
-  animation: bounce 3s infinite ease-in-out;
-  transition: transform 0.3s;
+  transition: transform .3s ease;
+}
+.logo:hover{ transform: scale(1.05); }
+
+.nav{ display:flex; gap:30px; }
+
+.nav-link{
+  position: relative;
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  transition: color .3s ease;
+}
+.nav-link::after{
+  content:'';
+  position:absolute;
+  left:0; bottom:-3px;
+  width:0; height:3px;
+  background: var(--accent);
+  transition: width .3s ease;
+}
+.nav-link:hover::after{ width:100%; }
+.nav-link:hover{ color: var(--accent); }
+.nav-link.active{ color: var(--accent-strong); }
+
+/* ========== Layout ========== */
+.center-content{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  padding:100px 20px;
+  min-height: calc(100vh - 90px);
+  text-align:center;
 }
 
-.logo:hover {
-  transform: scaleX(1.7) rotate(-2deg);
+.title{ margin:0 0 10px; color:#222; }
+.subtitle{ margin:0; color:#444; }
+
+h1,h2{ color:#222; }
+h2{ font-size:2.2rem; margin-bottom:30px; text-shadow:1px 1px 6px rgba(255,255,255,.5); }
+
+/* Appearing animation for pages */
+.page-enter{
+  animation: pageIn .5s ease both;
+}
+@keyframes pageIn{
+  from{ opacity:0; transform: translateY(12px); }
+  to{ opacity:1; transform: translateY(0); }
 }
 
-/* Подпрыгивание */
-@keyframes bounce {
-  0%, 100% { transform: scaleX(1.5) translateY(0); }
-  50% { transform: scaleX(1.5) translateY(-10px); }
+/* ========== Funfacts Styles ========== */
+.fact-bubble{
+  font-size:1.2rem;
+  color:#444;
+  background: rgba(255,255,255,0.25);
+  padding:15px 22px;
+  border-radius:15px;
+  margin-bottom:22px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  max-width: 680px;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+.fact-bubble.bump{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.12);
 }
 
-/* ---------- Окно для увеличенного лого ---------- */
-.logo-overlay {
+/* Buttons */
+.btn{
+  padding: 14px 26px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+  box-shadow: 0 6px 18px rgba(255, 111, 97, .25);
+  background: var(--accent);
+  color: var(--white);
+}
+.btn:hover{
+  background: var(--accent-strong);
+  transform: translateY(-1px) scale(1.015);
+}
+.btn:active{ transform: translateY(0) scale(0.99); }
+
+.btn.primary{ background: var(--accent); }
+.btn.danger{
+  background: #ef5350;
+  box-shadow: 0 6px 18px rgba(239, 83, 80, .25);
+}
+.btn.danger:hover{ background:#e53935; }
+
+/* ========== Achievements ========== */
+.ach-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+  margin-top:10px;
+}
+
+.achievement-card{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  background: rgba(255,255,255,.9);
+  color:#222;
+  border-radius:20px;
+  padding:16px 18px;
+  min-width: 300px;
+  max-width: 520px;
+  box-shadow: var(--shadow);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+.achievement-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.15);
+}
+
+.achievement-card.locked{
+  filter: grayscale(.45) contrast(.9);
+  opacity:.85;
+}
+.achievement-card.unlocked{
+  background: linear-gradient(135deg, #ffd700, #ff7f50);
+  color:#000;
+  box-shadow: 0 10px 26px rgba(0,0,0,.15);
+}
+
+.achievement-card .emoji{
+  font-size:2.1rem;
+  width: 2.6rem;
+  text-align:center;
+}
+.achievement-card .ach-title{
+  margin:0 0 4px 0;
+}
+.achievement-card .ach-desc{
+  margin:0;
+  opacity:.8;
+}
+.achievement-counter{
+  margin-top:6px;
+  display:inline-block;
+  font-size:.85rem;
+  color:#333;
+}
+
+.mt-20{ margin-top:20px; }
+
+/* ========== Toast (Top Notification) ========== */
+.achievement-toast{
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
+  top:-120px;
+  left:50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  color:#222;
+  padding: 14px 18px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.25);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  transition: top .55s cubic-bezier(.2,.8,.2,1);
+  z-index: 10000;
+}
+.achievement-toast.show{ top: 22px; }
+.achievement-icon{ font-size:1.6rem; }
+.achievement-text{ text-align:left; }
+.achievement-text h3{ margin:0; font-size:1.05rem; }
+.achievement-text p{ margin:.25rem 0 0; font-size:.95rem; }
+
+/* ========== Modals ========== */
+.modal{
+  position: fixed;
+  inset: 0;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.5s ease, visibility 0.5s;
-  z-index: 999;
+  background: rgba(0,0,0,.35);
+  transition: opacity .35s ease, visibility .35s ease;
+  z-index: 9999;
+  pointer-events: none;
 }
-
-.logo-overlay.active {
+.modal.show{
   visibility: visible;
   opacity: 1;
+  pointer-events: auto;
+}
+.modal-dialog{
+  width: min(92vw, 440px);
+  border-radius: 22px;
+  background: rgba(255,255,255, .95);
+  color:#111;
+  padding: 22px 22px 18px;
+  box-shadow: 0 14px 36px rgba(0,0,0,.25);
+  animation: pop .35s ease both;
+  text-align:center;
+}
+@keyframes pop{
+  from{ transform: translateY(6px) scale(.96); opacity:.6; }
+  to{ transform: translateY(0) scale(1); opacity:1; }
+}
+.modal-emoji{ font-size:2.2rem; margin-bottom:6px; }
+.modal-title{ margin:6px 0 6px; }
+.modal-text{ margin:0 0 14px; }
+.modal-actions{ display:flex; justify-content:center; gap:10px; }
+
+/* Accessibility focus */
+.achievement-card:focus{
+  outline: 3px solid rgba(255,111,97,.7);
+  outline-offset: 3px;
 }
 
-.logo-overlay img {
-  max-width: 70%;
-  max-height: 70%;
-  transform: scale(0.5);
-  transition: transform 0.5s ease;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+/* ========== Timer Styles ========== */
+.timer-container {
+  width: 100%;
+  background-color: #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0;
+  height: 25px;
 }
 
-.logo-overlay.active img {
-  transform: scale(1);
+.timer-bar {
+  height: 100%;
+  width: 0%;
+  background-color: #4caf50;
+  transition: width 0.2s linear;
 }
 
-.logo-overlay .overlay-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.timer-text {
+  margin-top: 8px;
+  font-weight: 600;
 }
 
-/* Надпись под увеличенным логотипом */
-.logo-overlay .overlay-caption {
-  margin-top: 15px; /* отступ от картинки */
-  font-size: 24px;
-  color: #ffb6f2;
-  font-family: 'Fredoka One', sans-serif;
+/* ========== Timer Info Blocks / While Waiting Section ========== */
+.waiting-section{
+  width: 100%;
+  max-width: 900px;
+  margin-top: 30px;
   text-align: center;
-  opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  transform: translateY(10px); /* слегка снизу для анимации */
 }
 
-/* Показываем текст и поднимаем его при активации overlay */
-.logo-overlay.active .overlay-caption {
-  opacity: 1;
-  transform: translateY(0);
+.waiting-section h3{
+  margin-bottom: 20px;
+  font-size: 1.3rem;
 }
 
-.funfact-container {
+.timer-info-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px;
-  gap: 20px;
-  animation: fadeIn 1.5s ease-in-out;
-  font-family: 'Fredoka One', sans-serif; /* новый шрифт */
+  justify-content: space-between;
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
-.funfact-container h2 {
-  font-size: 36px;
-  margin-bottom: 10px;
+.timer-info-block {
+  flex: 1 1 28%;
+  background: rgba(255,255,255,0.25);
+  padding: 12px 16px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+  min-width: 200px;
+  transition: transform .25s ease, box-shadow .25s ease;
 }
-
-.funfact-container p {
-  font-size: 24px;
-  color: #ffe4f0;
-  min-height: 40px;
+.timer-info-block:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
 }
-
-#funfact-btn {
-  padding: 12px 25px;
-  font-size: 18px;
-  border: none;
-  border-radius: 15px;
-  background: #ffb6f2;
-  color: #000;
-  cursor: pointer;
-  transition: transform 0.2s, background 0.3s;
+.timer-info-block h4 {
+  margin: 0 0 4px 0;
+  font-size: 1rem;
+  font-weight: 600;
 }
-
-#funfact-btn:hover {
-  transform: scale(1.1);
-  background: #ff99dd;
+.timer-info-block p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
 }

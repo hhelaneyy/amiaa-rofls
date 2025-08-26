@@ -1,35 +1,43 @@
-<html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title data-i18n="page_title">Ami Kaboom</title>
-        <link rel="icon" href="assets/images/амичка.jpg" type="image/x-icon">
-        <link rel="stylesheet" href="styles.css"/>
-        <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <img src="assets/images/lol.jpg" alt="VTuber Logo" class="logo">
-            <nav>
-            <a href="index.html">Home</a>
-            <a href="ami_facts.html">Funfacts</a>
-            <a href="some_shit2.html">???</a>
-            <a href="SOME_SHIT3.html">???</a>
-            </nav>
-        </header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+  <title>Ami Kaboom — Home</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header">
+    <img src="assets/images/амичка.jpg" alt="VTuber Logo" class="logo" />
+    <nav class="nav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="facts.html" class="nav-link">Funfacts</a>
+      <a href="achievements.html" class="nav-link">Achievements</a>
+      <a href="secrets.html" class="nav-link">???</a>
+    </nav>
+  </header>
 
+  <main class="center-content page-enter">
+    <h1 class="title">uhh.. is this the ami website??</h1>
+    <p class="subtitle">Я люблю тебя Ami!!</p>
+  </main>
 
-        <div class="logo-overlay" id="logoOverlay">
-        <div class="overlay-content">
-            <img src="assets/images/lol.jpg" alt="Big Logo">
-            <p class="overlay-caption">yes, im the mayor</p>
-        </div>
-        </div>
+  <!-- Toast (achievement unlocked) -->
+  <div class="achievement-toast" id="achievementToast" aria-live="polite">
+    <div class="achievement-icon">🏆</div>
+    <div class="achievement-text">
+      <h3 id="toastTitle">New Achievement Unlocked!</h3>
+      <p id="toastSubtitle">Prize: ...</p>
+    </div>
+  </div>
 
-        <div class="center-text">
-            I made this site because I was bored. Enjoy. 💥🥀
-        </div>
-
-        <script src="script.js"></script>
-    </body>
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
 </html>
